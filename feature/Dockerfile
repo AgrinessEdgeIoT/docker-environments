@@ -12,7 +12,6 @@ RUN php composer-setup.php
 RUN php -r "unlink('composer-setup.php');"
 
 # Silex (https://silex.symfony.com/)
-RUN rm /var/www/html/index.html
 WORKDIR "/var/www"
 RUN curl -sS https://getcomposer.org/installer | php
 RUN touch composer.json
