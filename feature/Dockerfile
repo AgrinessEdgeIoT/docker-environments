@@ -3,7 +3,7 @@ FROM php:7.1-apache
 
 # Dependencies
 RUN apt-get update
-RUN apt-get install -y curl git zip
+RUN apt-get install -y git zip
 
 # Composer (https://getcomposer.org/)
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -14,6 +14,5 @@ RUN php -r "unlink('composer-setup.php');"
 # Silex (https://silex.symfony.com/)
 WORKDIR "/var/www"
 RUN curl -sS https://getcomposer.org/installer | php
-RUN touch composer.json
-RUN echo "{\"require\": {\"silex/silex\": \"~1.2\"}}" > composer.json
+RUN touch composer.json && echo "{\"require\": {\"silex/silex\": \"~1.2\"}}" > composer.json
 RUN php composer.phar update
