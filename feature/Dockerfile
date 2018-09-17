@@ -3,7 +3,7 @@ FROM php:7.1-apache
 
 # Dependencies
 RUN apt-get update
-RUN apt-get install -y curl
+RUN apt-get install -y curl git zip
 
 # Composer (https://getcomposer.org/)
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
