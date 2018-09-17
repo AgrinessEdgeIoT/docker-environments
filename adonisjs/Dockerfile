@@ -1,9 +1,6 @@
 # BASE IMAGE
 FROM node:8.11.1
 
-# Dockerfile Author / Maintainer
-MAINTAINER Matheus Mota <matheus@agrinessedge.com>
-
 # Dependencies
 RUN apt-get update
 RUN apt-get install -y zip python3 python3-pip python3-dev curl wget
