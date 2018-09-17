@@ -15,5 +15,5 @@ RUN php -r "unlink('composer-setup.php');"
 WORKDIR "/var/www"
 RUN curl -sS https://getcomposer.org/installer | php
 RUN touch composer.json
-RUN "{\"require\": {\"silex/silex\": \"~1.2\"}}" > composer.json
+RUN echo "{\"require\": {\"silex/silex\": \"~1.2\"}}" > composer.json
 RUN php composer.phar update
