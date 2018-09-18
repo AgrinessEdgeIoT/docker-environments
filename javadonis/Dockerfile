@@ -2,9 +2,8 @@
 FROM openjdk:8u181
 
 # Dependencies
-RUN apt-get update
-RUN apt-get install -y zip python3 python3-pip python3-dev curl wget
-RUN pip3 install boto3==1.3.0 influxdb
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN apt-get update && apt-get install -y nodejs
 
 # AdonisJs (https://adonisjs.com/)
 RUN npm i -g @adonisjs/cli
@@ -17,3 +16,6 @@ RUN rm sonar-scanner-cli-3.2.0.1227-linux.zip
 
 # Newman (https://github.com/postmanlabs/newman)
 RUN npm i -g newman
+
+# Instanbul (https://www.npmjs.com/package/istanbul)
+RUN npm i -g istanbul
