@@ -2,8 +2,7 @@
 FROM php:7.1-apache
 
 # Dependencies
-RUN apt-get update
-RUN apt-get install -y git libpq-dev zip
+RUN apt-get update && apt-get install -y git libpq-dev zip
 RUN docker-php-ext-install pdo pdo_pgsql pgsql
 
 # Composer (https://getcomposer.org/)

@@ -2,8 +2,7 @@
 FROM node:8.11.1
 
 # Dependencies
-RUN apt-get update
-RUN apt-get install -y zip
+RUN apt-get update && apt-get install -y zip
 
 # AdonisJs (https://adonisjs.com/)
 RUN npm i -g @adonisjs/cli

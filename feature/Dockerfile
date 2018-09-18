@@ -2,9 +2,8 @@
 FROM openjdk:8u181
 
 # Dependencies
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-RUN apt-get update
-RUN apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_8.x
+RUN apt-get update && apt-get install -y nodejs
 
 # AdonisJs (https://adonisjs.com/)
 RUN npm i -g @adonisjs/cli
