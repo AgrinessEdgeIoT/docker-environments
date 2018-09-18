@@ -3,8 +3,7 @@ FROM node:8.11.1
 
 # Dependencies
 RUN apt-get update
-RUN apt-get install -y zip python3 python3-pip python3-dev curl wget
-RUN pip3 install boto3==1.3.0 influxdb
+RUN apt-get install -y zip
 
 # AdonisJs (https://adonisjs.com/)
 RUN npm i -g @adonisjs/cli
