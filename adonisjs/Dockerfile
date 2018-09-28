@@ -1,20 +1,16 @@
 # BASE IMAGE
-FROM node:8.11.1
+FROM node:8-alpine
 
-# Dependencies
-RUN apt-get update && apt-get install -y zip
+# DEPENDENCIES
+RUN apk --no-cache add curl unzip
 
-# AdonisJs (https://adonisjs.com/)
-RUN npm i -g @adonisjs/cli
+# SonarQube Scanner
+RUN curl --insecure -OL https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip && \
+	unzip sonar-scanner-cli-3.2.0.1227-linux.zip -d /opt/ && \
+	ln -s /opt/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner /usr/bin/sonar-scanner && \
+	rm sonar-scanner-cli-3.2.0.1227-linux.zip
 
-# SonarQube Scanner (https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)
-RUN curl --insecure -OL https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
-RUN unzip sonar-scanner-cli-3.2.0.1227-linux.zip -d /opt/
-RUN ln -s /opt/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner /usr/bin/sonar-scanner
-RUN rm sonar-scanner-cli-3.2.0.1227-linux.zip
-
-# Newman (https://github.com/postmanlabs/newman)
-RUN npm i -g newman
-
-# Instanbul (https://www.npmjs.com/package/istanbul)
-RUN npm i -g istanbul
+# AdonisJs, Newman, Instanbul
+RUN npm i -g @adonisjs/cli && \
+	npm i -g newman && \
+	npm i -g istanbul
