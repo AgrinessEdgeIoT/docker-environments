@@ -1,12 +1,15 @@
 # BASE IMAGE
-FROM node:8-alpine
+FROM node:8-slim
+
+# DEPENDENCIES
+RUN apt-get update && \
+	apt-get install -y unzip && \
 
 # SonarQube Scanner
-RUN apk --update --no-cache add curl unzip && \
-	curl --insecure -OL ./sonarscanner.zip "https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip" && \
-	unzip sonarscanner.zip -d /opt/ && \
+RUN curl --insecure -OL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip && \
+	unzip sonar-scanner-cli-3.2.0.1227-linux.zip -d /opt/ && \
 	ln -s /opt/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner /usr/bin/sonar-scanner && \
-	rm sonarscanner.zip
+	rm sonar-scanner-cli-3.2.0.1227-linux.zip
 
 # AdonisJs, Newman, Instanbul
 RUN npm i -g @adonisjs/cli && \

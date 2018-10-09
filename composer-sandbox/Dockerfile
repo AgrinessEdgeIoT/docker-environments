@@ -15,7 +15,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 	php -r "unlink('composer-setup.php');"
 
 # SonarQube Scanner
-RUN curl --insecure -OL ./sonarscanner.zip "https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip" && \
+RUN curl --insecure -OL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip && \
 	unzip sonarscanner.zip -d /opt/ && \
 	ln -s /opt/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner /usr/bin/sonar-scanner && \
 	rm sonarscanner.zip
