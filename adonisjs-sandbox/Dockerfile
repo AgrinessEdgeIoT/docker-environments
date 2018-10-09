@@ -3,7 +3,7 @@ FROM node:8-slim
 
 # DEPENDENCIES
 RUN apt-get update && \
-	apt-get install -y unzip && \
+	apt-get install -y unzip
 
 # SonarQube Scanner
 RUN curl --insecure -OL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip && \
