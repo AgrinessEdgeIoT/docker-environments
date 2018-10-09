@@ -20,7 +20,6 @@ RUN curl --insecure -OL https://binaries.sonarsource.com/Distribution/sonar-scan
 	ln -s /opt/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner /usr/bin/sonar-scanner && \
 	rm sonar-scanner-cli-3.2.0.1227-linux.zip
 
-# AdonisJs, Newman, Instanbul
-RUN npm i -g @adonisjs/cli && \
-	npm i -g newman && \
+# Newman, Instanbul
+RUN npm i -g newman && \
 	npm i -g istanbul
