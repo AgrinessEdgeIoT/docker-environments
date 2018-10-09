@@ -16,9 +16,9 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 
 # SonarQube Scanner
 RUN curl --insecure -OL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip && \
-	unzip sonarscanner.zip -d /opt/ && \
+	unzip sonar-scanner-cli-3.2.0.1227-linux.zip -d /opt/ && \
 	ln -s /opt/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner /usr/bin/sonar-scanner && \
-	rm sonarscanner.zip
+	rm sonar-scanner-cli-3.2.0.1227-linux.zip
 
 # AdonisJs, Newman, Instanbul
 RUN npm i -g @adonisjs/cli && \
