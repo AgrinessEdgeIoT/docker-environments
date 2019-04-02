@@ -3,7 +3,8 @@ FROM node:8-slim
 
 # DEPENDENCIES
 RUN apt-get update && \
-	apt-get install -y unzip
+	apt-get install -y python3 python3-pip python3-dev unzip && \
+	pip3 install boto3==1.3.0 influxdb
 
 # SonarQube Scanner
 RUN curl --insecure -OL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip && \
