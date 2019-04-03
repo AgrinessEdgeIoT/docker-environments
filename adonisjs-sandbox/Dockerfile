@@ -3,7 +3,7 @@ FROM node:8-slim
 
 # DEPENDENCIES
 RUN apt-get update && \
-	apt-get install -y python3 python3-pip python3-dev unzip && \
+	apt-get install -y python3 python3-pip python3-dev zip unzip && \
 	pip3 install boto3==1.3.0 influxdb
 
 # SonarQube Scanner
