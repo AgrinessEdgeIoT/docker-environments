@@ -14,11 +14,15 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 	php composer-setup.php --install-dir=/usr/bin --filename composer && \
 	php -r "unlink('composer-setup.php');"
 
+#Install PostGresSQL Client
+RUN apt-get update && mkdir /usr/share/man/man1 && mkdir /usr/share/man/man7 && \
+	apt-get install postgresql-client -y && rm -r /usr/share/man/man7 && rm -r /usr/share/man/man1
+
 # SonarQube Scanner
-RUN curl --insecure -OL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip && \
-	unzip sonar-scanner-cli-3.2.0.1227-linux.zip -d /opt/ && \
-	ln -s /opt/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner /usr/bin/sonar-scanner && \
-	rm sonar-scanner-cli-3.2.0.1227-linux.zip
+RUN curl --insecure -OL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip && \
+	unzip sonar-scanner-cli-3.3.0.1492-linux.zip -d /opt/ && \
+    ln -s /opt/sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner /usr/bin/sonar-scanner && \
+    rm sonar-scanner-cli-3.3.0.1492-linux.zip
 
 # Newman, Instanbul
 RUN npm i -g newman && \
