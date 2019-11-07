@@ -1,5 +1,5 @@
 # BASE IMAGE
-FROM php:7.1-apache
+FROM php:7.2-apache
 
 # DEPENDENCIES
 RUN apt-get update && \
