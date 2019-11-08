@@ -4,7 +4,7 @@ FROM php:7.2-apache
 # DEPENDENCIES
 RUN apt-get update && \
 	apt-get install -y gnupg && \
-	curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+	curl -sL https://deb.nodesource.com/setup_13.x | bash - && \
 	apt-get install -y git libpq-dev nodejs zip && \
 	docker-php-ext-install pdo pdo_pgsql pgsql
 
@@ -25,5 +25,6 @@ RUN curl --insecure -OL https://binaries.sonarsource.com/Distribution/sonar-scan
     rm sonar-scanner-cli-3.3.0.1492-linux.zip
 
 # Newman, Instanbul
-RUN npm i -g newman && \
-	npm i -g istanbul
+#RUN npm i -g newman && \
+#	npm i -g istanbul
+RUN npm i -g newman
